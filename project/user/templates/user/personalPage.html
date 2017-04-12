@@ -1,0 +1,69 @@
+{% extends "user/base.html" %}
+
+{% block css %}
+
+<link rel="stylesheet" href="../../static/user/css/personalPage.css">
+
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col s3" data-lat="{{lat}}" data-long="{{long}}">
+			<div class="hypotheticalProfilePic">
+				<p> Profile Picture Coming Soon </p>
+			</div>
+		</div>
+		<div class="col s3 userInfo">
+			
+			<form action="/account" method="POST"> 
+				<h5> First Name </h5>
+				<input type="text" value = "{{user.first_name}}" name="firstNameField">
+				<h5> Last Name </h5>
+				<input type="text" value = "{{user.last_name}}" name="lastNameField">
+				<h5> Description </h5>
+				<input type="text" value = "Description Here" name="descriptionField">
+				<p>
+				To change your personal info, fill in the boxes above and then click "Update Info"
+				</p>
+				<input  class="submitNewUserInfo" type="submit" value="Update Info">
+
+			</form>
+		</div>
+		<div class="col s6 propertyRightSide">
+			<ul class="accountPagePropertyList">
+			{% for property in properties %}
+				<li>
+					<div class="card blue-grey darken-1">
+			            <div class="card-content white-text">
+			              <span class="card-title">{{property.address}} {{property.city}} {{property.state}} {{property.zipcode}}</span>
+			              <ul>
+			              	<li> <span style="font-weight:bold;">Address: </span> {{property.address}}, {{property.city}}, {{property.state}}, {{property.zipcode}} </li>
+							{% if property.bedrooms == 0 %}
+							<li> <span style="font-weight:bold;">Bedrooms: </span> Information Unavailabe </li>
+							{% else %}
+							<li> <span style="font-weight:bold;">Bedrooms: </span>{{property.bedrooms}} </li>
+							{% endif %}
+							{% if property.bathrooms == 0 %}
+							<li> <span style="font-weight:bold;">Bathrooms: </span>Information Unavailabe </li>
+							{% else %}
+							<li> <span style="font-weight:bold;">Bathrooms: </span>{{property.bathrooms}} </li>
+							{% endif %}
+							<li> <span style="font-weight:bold;">Price: </span>${{property.current_price}} </li>
+							{% if property.sq_ft == 0 %}
+							<li> <span style="font-weight:bold;">Square Footage: </span> Information Unavailabe </li>
+							{% else %}
+							<li> <span style="font-weight:bold;">Square Footage: </span>{{property.sq_ft}}ft </li>
+							{% endif %}
+							<li> <a href="/property/{{property.id}}"> Click to see other Investors </a> </li>
+			            </ul>
+			            </div>
+			            <div class="card-action">
+			            	<a href="/property/{{property.id}}">More Info </a>
+			            </div>
+		          </div>
+	          </li>
+          {% endfor %}
+          	</ul>
+		</div>
+	</div>
+{% endblock %}
