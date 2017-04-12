@@ -1,0 +1,45 @@
+{% extends "user/base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="../../static/user/css/login.css">
+{% endblock %}
+
+
+{% block body %}
+<div class="row">
+	<div class="col s4">
+		<h4 class="loginTitle"> Login </h4>
+		<p id="errorMessage">{{lError_message}}</p>
+		<form action='/home' method = 'POST' class="loginForm">
+			<input class="loginTextInput" placeholder="Username" type="text" name="existUsername" required>
+			<input class="loginTextInput" placeholder="Password" type="password" name="existPassword" required>
+			<input type='submit' value="Submit">
+		</form>
+	</div>
+	<div class="col s4">
+		<h4 class="loginTitle"> Sign Up </h4>
+		<p id="errorMessage">{{rError_message}}</p>
+		<form action='/register' method = 'POST' class="loginForm">
+			<input class="loginTextInput" placeholder="Username" type="text" name="newUsername" required>
+			<input class="loginTextInput" placeholder="New Password" type="password" name="newPassword" required>
+			<input class="loginTextInput" placeholder="First Name" type="text" name="newFirstName" required>
+			<input class="loginTextInput" placeholder="Last Name" type="text" name="newLastName" required>
+			<input type='submit' value="Submit">
+		</form>
+	</div>
+	<div class="col s4">
+		<h3> About </h3>
+		<p> RealVest is an web application that allows users to pool together funds in order to acquire luxury apartments in New York City to resell or rent out in order to acquire profits. </p>
+		<p> Sign Up today and Join the Real Estate Investment Community! </p>
+		<p> </p>
+		<p> Creator: <a href="https://www.linkedin.com/in/alexanderpotashnik/" target="_blank"> Alexander Potashnik </a> </p>
+
+	</div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+	<script src="../../static/user/js/login.js"></script>
+{% endblock %}

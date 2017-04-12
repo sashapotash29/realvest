@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/singleProperty.css">
+{% endblock %}
+
+
+{% block body %}
+	<div class="row titlesArea">
+		<div class="col s4 titles">
+			<h3>Google Map</h3>
+		</div>
+		<div class="col s8 titles">
+			<h3>Property Facts</h3>
+		</div>
+	</div>
+
+	<div class="row property">
+		<div class="col s4 propertyInfoArea googleMaps" data-lat="{{lat}}" data-long="{{long}}">
+		</div>
+		<div class="col s8 propertyInfoArea">
+			<ul id = "propertyInfoUl" class="singlePagePropInfo" data-id={{property.id}}>
+				<li> <span style="font-weight:bold;">Address: </span> {{property.address}}, {{property.city}}, {{property.state}}, {{property.zipcode}} </li>
+				{% if property.bedrooms == 0 %}
+				<li> <span style="font-weight:bold;">Bedrooms: </span> Information Unavailabe </li>
+				{% else %}
+				<li> <span style="font-weight:bold;">Bedrooms: </span>{{property.bedrooms}} </li>
+				{% endif %}
+				{% if property.bathrooms == 0 %}
+				<li> <span style="font-weight:bold;">Bathrooms: </span>Information Unavailabe </li>
+				{% else %}
+				<li> <span style="font-weight:bold;">Bathrooms: </span>{{property.bathrooms}} </li>
+				{% endif %}
+				<li> <span style="font-weight:bold;">Price: </span>${{property.current_price}} </li>
+				{% if property.sq_ft == 0 %}
+				<li> <span style="font-weight:bold;">Square Footage: </span> Information Unavailabe </li>
+				{% else %}
+				<li> <span style="font-weight:bold;">Square Footage: </span>{{property.sq_ft}}ft </li>
+				{% endif %}
+				<li><span style="font-weight:bold;">Current Level of Investment Reached: </span>${{current_investment_value}}</li>
+			</ul>
+		</div>
+
+	</div>
+	<div class="row buttonsSP">
+		{% if check %}
+			<div class="col s4 buttonsSingleProperty">
+				<a class = "viewAccountToSee" href="/account"> View your Account to see </a>
+			</div>
+				{% if check.investment_value == 0 %}
+					<div class="col s8 buttonsSingleProperty saveArea">
+						<input class = "saveInvest" type='submit' value="Invest" id="investButton">
+					</div>
+				{% else %}
+					<div class="col s8 buttonsSingleProperty">
+						<span id="investmentAmountMessage"> Amount you have contributed: </span>
+						<span id="investmentAmount">${{check.investment_value}}</span>
+					</div>
+				{% endif %}
+			
+		{% else %}
+			<div class="col s4 buttonsSingleProperty">
+				<input class = "saveInvest" type='submit' value="Save" id="saveButton">
+			</div>
+			<div class="col s8 buttonsSingleProperty investFormForLater">
+				<input class = "saveInvest" type='submit' value="Invest" id="investButton">
+			</div>
+		{% endif %}
+	</div>
+
+	<div class="row investFormArea">
+		<div class="col s6 formArea">
+		</div>
+		<div class="col s6 formArea">
+			<form action="/invest_property/{{property.id}}" method="POST" id="formToInvest">
+				<input type="text" placeholder="Insert amount you wish to invest" name="investmentAmount">
+				<input type="submit" Value= "Invest">
+			</form>
+		</div>
+	</div>
+
+	<div class="row investors">
+		<div class="col s12 investorsArea">
+			<h3> Other Investors </h3>
+			<ul class="investorOnPropertyUL">
+			{% if investors %}
+			{% for investor in investors %}
+				<li class="investorOnProperty"> User: <a>{{investor['name']}}</a>   <p class="investedAmountP"> Amount Invested: <span class="moneys">${{investor['amount']}} </span> </p>
+				</li>
+			{% endfor %}
+			{% else %}
+				<li class="investorOnProperty"> No Investors Currently </li>
+			{% endif %}
+			</ul>
+		</div>
+	</div>
+
+	
+{% endblock %}
+
+{% block js %}
+<script src="https://maps.googleapis.com/maps/api/js?key={{uhoh}}&callback=initMap"
+    async defer></script>
+<script src="../static/js/singleproperty.js"></script>
+{% endblock %}
