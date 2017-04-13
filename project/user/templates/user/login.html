@@ -10,7 +10,8 @@
 	<div class="col s4">
 		<h4 class="loginTitle"> Login </h4>
 		<p id="errorMessage">{{lError_message}}</p>
-		<form action='/home' method = 'POST' class="loginForm">
+		<form action='/login' method = 'POST' class="loginForm">
+			{% csrf_token %}
 			<input class="loginTextInput" placeholder="Username" type="text" name="existUsername" required>
 			<input class="loginTextInput" placeholder="Password" type="password" name="existPassword" required>
 			<input type='submit' value="Submit">
@@ -20,6 +21,7 @@
 		<h4 class="loginTitle"> Sign Up </h4>
 		<p id="errorMessage">{{rError_message}}</p>
 		<form action='/register' method = 'POST' class="loginForm">
+			{% csrf_token %}
 			<input class="loginTextInput" placeholder="Username" type="text" name="newUsername" required>
 			<input class="loginTextInput" placeholder="New Password" type="password" name="newPassword" required>
 			<input class="loginTextInput" placeholder="First Name" type="text" name="newFirstName" required>

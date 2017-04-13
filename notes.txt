@@ -1,0 +1,4 @@
+4/13:
+encodeing password before request?
+using django forms for login page >> look into just building own and how easy the django forms makes validation
+Forms.py not ready
