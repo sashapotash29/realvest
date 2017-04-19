@@ -19,7 +19,6 @@
 	</div>
 	<div class="col s4">
 		<h4 class="loginTitle"> Sign Up </h4>
-		<p id="errorMessage">{{rError_message}}</p>
 		<form action='/register' method = 'POST' class="loginForm">
 			{% csrf_token %}
 			<input class="loginTextInput" placeholder="Username" type="text" name="newUsername" required>
@@ -28,6 +27,7 @@
 			<input class="loginTextInput" placeholder="Last Name" type="text" name="newLastName" required>
 			<input type='submit' value="Submit">
 		</form>
+		<p id="errorMessage">{{rError_message}}</p>
 	</div>
 	<div class="col s4">
 		<h3> About </h3>

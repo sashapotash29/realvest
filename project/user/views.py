@@ -26,23 +26,23 @@ def home(request):
 
 def register(request):
 	if request.method == "POST":
-		print(dir(request))
-		print(request.META)
-		# form = signup_form(request.POST)
-		# dic = model_to_dict(form)
-		# print(dic)
-		# arr=[]
-		# for each in form:
-		# 	arr.append(each.value())
-		# print(arr)
-		# print('--------------')
-		# print(dir(form))
-		# print('--------------')
+		# print(dir(request))
+		print(request.POST['newPassword'])
+		new_username = request.POST['newUsername']
+		check = User.objects.filter(username=new_username)
+		print(check)
+		if len(check)>0:
+			error = 'The Username you have provided is already taken.'
+			return render(request, 'user/login.html', {'rError_message':error})
+		else:
+			user = User(
+				username=request.POST['newUsername'],
+				password=request.POST['newPassword'],
+				first_name=request.POST['newFirstName'],
+				last_name=request.POST['newLastName']
+				)
+			user.save()
+			return render(request, 'user/home.html')
 
-		# print(type(form.cleaned_data['newUsername']))
-		# print(form['newUsername'].value)
-
-		# new_username = request.form['newUsername']
-		# result = User.objects.filter(username=new_username)
 	elif request.method == "GET":
 		print('get request')
