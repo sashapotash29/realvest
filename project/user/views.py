@@ -2,16 +2,16 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-
+from django.contrib.auth import authenticate, login
 from .forms import RegistrationForm
 from django.forms.models import model_to_dict
-
+from properties.models import Properties
 # Create your views here.
 
-# @login_required
-# def my_view(request):
 
-def login_page(request):
+######## route / #####
+
+def landing_page(request):
 	if request.method == "GET":
 		print(request.body)
 		# print(request.GET)
@@ -23,13 +23,24 @@ def login_page(request):
 	else:
 		return('Error')
 
+######## route /login #####
 
 def home(request):
 	if request.method == "POST":
-		form = AuthenticationForm(request.GET)
-		print(form)
-		if form.is_valid():
+		form = AuthenticationForm(request.POST)
+		username =request.POST['username']
+		password = request.POST['password']
+		user = authenticate(request=request, username=username, password=password)
+		print(user)
+		if user is not None:
+			login(request, user)
 			return render(request, 'user/home.html')
+		else:
+			error = 'The Username and Password you have provided was not correct.'
+			args = {'lform':form,'lError_message':error, 'rform': RegistrationForm()}
+			return render(request, 'user/login.html',args)
+
+######## route /register #####
 
 def register(request):
 	if request.method == "POST":
@@ -44,27 +55,8 @@ def register(request):
 			print('not valid')
 			form = RegistrationForm()
 			error = 'The Username you have provided is already taken.'
-			args = {'rform':form,'rError_message':error}
+			args = {'rform':form,'rError_message':error, 'lform':AuthenticationForm()}
 			return render(request, 'user/login.html', args)
-
-
-
-		# print(request.POST['newPassword'])
-		# new_username = request.POST['newUsername']
-		# check = User.objects.filter(username=new_username)
-		# print(check)
-		# if len(check)>0:
-		# 	error = 'The Username you have provided is already taken.'
-		# 	return render(request, 'user/login.html', {'rError_message':error})
-		# else:
-		# 	user = User(
-		# 		username=request.POST['newUsername'],
-		# 		password=request.POST['newPassword'],
-		# 		first_name=request.POST['newFirstName'],
-		# 		last_name=request.POST['newLastName']
-		# 		)
-		# 	user.save()
-		# 	return render(request, 'user/home.html')
 
 	else:
 		print('wrong request sent')
