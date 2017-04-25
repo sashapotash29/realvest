@@ -10,22 +10,26 @@
 	<div class="col s4">
 		<h4 class="loginTitle"> Login </h4>
 		<p id="errorMessage">{{lError_message}}</p>
-		<form action='/home' method = 'POST' class="loginForm">
-			<input class="loginTextInput" placeholder="Username" type="text" name="existUsername" required>
-			<input class="loginTextInput" placeholder="Password" type="password" name="existPassword" required>
+		<form action='/login' method = 'POST' class="loginForm">
+			{% csrf_token %}
+			<!-- <input class="loginTextInput" placeholder="Username" type="text" name="existUsername" required>
+			<input class="loginTextInput" placeholder="Password" type="password" name="existPassword" required> -->
+			{{ lform.as_p }}
 			<input type='submit' value="Submit">
 		</form>
 	</div>
 	<div class="col s4">
 		<h4 class="loginTitle"> Sign Up </h4>
-		<p id="errorMessage">{{rError_message}}</p>
 		<form action='/register' method = 'POST' class="loginForm">
-			<input class="loginTextInput" placeholder="Username" type="text" name="newUsername" required>
+			{% csrf_token %}
+			<!-- <input class="loginTextInput" placeholder="Username" type="text" name="newUsername" required>
 			<input class="loginTextInput" placeholder="New Password" type="password" name="newPassword" required>
 			<input class="loginTextInput" placeholder="First Name" type="text" name="newFirstName" required>
-			<input class="loginTextInput" placeholder="Last Name" type="text" name="newLastName" required>
+			<input class="loginTextInput" placeholder="Last Name" type="text" name="newLastName" required> -->
+			{{ rform.as_p }}
 			<input type='submit' value="Submit">
 		</form>
+		<p id="errorMessage">{{rError_message}}</p>
 	</div>
 	<div class="col s4">
 		<h3> About </h3>
