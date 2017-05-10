@@ -123,6 +123,8 @@ PROJECT_DIR = os.path.dirname(os.path.abspath('Desktop/RealVest/realvest/project
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
 
+LOGIN_URL = '/'
+
 try:
     from .local_settings import *
 except ImportError:

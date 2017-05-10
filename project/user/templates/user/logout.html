@@ -1,0 +1,31 @@
+{% extends "user/base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="../../static/user/css/login.css">
+{% endblock %}
+
+
+{% block body %}
+<div class="row">
+	<div class="col s4 logOutMess">
+	<h3>Logged Out</h3>
+		<p>You have succesfully logged out. thank you for your visit. To log back in click the "Login" Button. Have a nice day!
+	</div>
+
+	<div class="col s4">
+		<form action='/' method = 'GET' class="loginForm">
+			{% csrf_token %}
+			<!-- <input class="loginTextInput" placeholder="Username" type="text" name="existUsername" required>
+			<input class="loginTextInput" placeholder="Password" type="password" name="existPassword" required> -->
+			{{ lform.as_p }}
+			<input type='submit' value="Login">
+		</form>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+	<script src="../../static/user/js/login.js"></script>
+{% endblock %}
