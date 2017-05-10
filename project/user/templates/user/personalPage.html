@@ -16,6 +16,7 @@
 		<div class="col s3 userInfo">
 			
 			<form action="/account" method="POST"> 
+				{% csrf_token %}
 				<h5> First Name </h5>
 				<input type="text" value = "{{user.first_name}}" name="firstNameField">
 				<h5> Last Name </h5>

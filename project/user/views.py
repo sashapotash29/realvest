@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User 
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
 from django.contrib.auth import authenticate, login
 from .forms import RegistrationForm
 from django.forms.models import model_to_dict
@@ -27,6 +27,7 @@ def landing_page(request):
 
 def home(request):
 	if request.method == "POST":
+		print('==============', request.user)
 		form = AuthenticationForm(request.POST)
 		username =request.POST['username']
 		password = request.POST['password']
@@ -34,7 +35,8 @@ def home(request):
 		print(user)
 		if user is not None:
 			login(request, user)
-			return render(request, 'user/home.html')
+			args = {'user':request.user}
+			return render(request, 'user/home.html', args)
 		else:
 			error = 'The Username and Password you have provided was not correct.'
 			args = {'lform':form,'lError_message':error, 'rform': RegistrationForm()}
@@ -60,3 +62,25 @@ def register(request):
 
 	else:
 		print('wrong request sent')
+
+######## route /account  #####
+
+def account_private(request):
+	# print(request.session)
+	# print(dir(request))
+	args = {'user': request.user}
+	# print(args)
+	return render(request, 'user/personalPage.html', args)
+
+
+def account_edit(request):
+	if reqiest.method == 'POST': 
+		form = UserChangeForm(request.POST, instance=request.user)
+
+		if form.is_valid():
+			form.save()
+			return redirect('/account')
+	else:
+		form = UserChangeForm(instance=request.user)
+		args = {'form':form}
+		return render(request, 'user/personlPage.html',)

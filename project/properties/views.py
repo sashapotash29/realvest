@@ -7,3 +7,6 @@ def show_all(request):
 
 def single(request, id):
 	return render(request, 'properties/singleProperty.html')
+
+def seed_prop(request):
+	pass
