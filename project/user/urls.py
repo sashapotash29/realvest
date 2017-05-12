@@ -7,10 +7,9 @@ from django.contrib.auth.views import logout
 
 urlpatterns = [
 	url(r'^$', views.landing_page, name="login"),
-	url(r'^home$', views.home, name="home"),
-	url(r'^login$', views.login, name="login"),
-	url(r'^logout$', logout, {'template_name':'user/logout.html'}),
 	url(r'^register$', views.register, name="register"),
+	url(r'^login$', views.home, name="home"),
+	url(r'^logout$', logout, {'template_name':'user/logout.html'}),
 	url(r'^account$', views.account_private, name="private_account"),
 	url(r'^account/edit$', views.account_edit, name="edit_account"),
 

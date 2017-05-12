@@ -24,23 +24,9 @@ def landing_page(request):
 	else:
 		return('Error')
 
-######## route /home#####
-
-def home(request):
-	print('hitting /home')
-	print(request)
-	if request.user:
-		args = {'user':request.user}
-		return render(request, 'user/home.html', args)
-	else:
-		error = 'You must first sign in to view that page. If you do not have an account then you must sign up.'
-		args = {'rform':RegistrationForm(),'message':error, 'lform':AuthenticationForm()}
-		return render(request, 'user/login.html', args)
-
-
 ######## route /login #####
 
-def login(request):
+def home(request):
 	if request.method == "POST":
 		print('==============', request.user)
 		form = AuthenticationForm(request.POST)
@@ -50,14 +36,21 @@ def login(request):
 		print(user)
 		if user is not None:
 			login(request, user)
-			return redirect(request,'/home', permanent=True)
+			args = {'user':request.user}
+			return render(request, 'user/home.html', args)
 		else:
 			error = 'The Username and Password you have provided was not correct.'
 			args = {'lform':form,'lError_message':error, 'rform': RegistrationForm()}
 			return render(request, 'user/login.html',args)
 	
 	if request.method == "GET":
-		return redirect(request,'/home')
+		if request.user:
+			args = {'user':request.user}
+			return render(request, 'user/home.html', args)
+		else:
+			error = 'You must first sign in to view that page. If you do not have an account then you must sign up.'
+			args = {'rform':RegistrationForm(),'message':error, 'lform':AuthenticationForm()}
+			return render(request, 'user/login.html', args)
 ######## route /register #####
 
 def register(request):
