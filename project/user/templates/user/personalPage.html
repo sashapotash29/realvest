@@ -1,4 +1,4 @@
-{% extends "user/base.html" %}
+{% extends "base.html" %}
 
 {% block css %}
 
@@ -13,24 +13,30 @@
 				<p> Profile Picture Coming Soon </p>
 			</div>
 		</div>
-		<div class="col s3 userInfo">
+		<div class="col s2 userInfo">
 			
-			<form action="/account" method="POST"> 
-				{% csrf_token %}
+			
+				
 				<h5> First Name </h5>
-				<input type="text" value = "{{user.first_name}}" name="firstNameField">
+				<p>{{user.first_name}}
+				</p>
 				<h5> Last Name </h5>
-				<input type="text" value = "{{user.last_name}}" name="lastNameField">
+				<p>{{user.last_name}}</p>
 				<h5> Description </h5>
-				<input type="text" value = "Description Here" name="descriptionField">
+				<p>{{userProfile.description}}
 				<p>
 				To change your personal info, fill in the boxes above and then click "Update Info"
 				</p>
 				<input  class="submitNewUserInfo" type="submit" value="Update Info">
 
-			</form>
 		</div>
-		<div class="col s6 propertyRightSide">
+		<div class="col s2 editInfo">
+		<!-- 	<form action='/account/edit' method = 'POST' class="infoEditForm">
+				{% csrf_token %}
+				{{form.as_p}}
+			</form> -->
+		</div>
+		<div class="col s5 propertyRightSide">
 			<ul class="accountPagePropertyList">
 			{% for property in properties %}
 				<li>
