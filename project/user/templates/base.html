@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-
+<html>	
 	<head>
-		{$ load static %}
 		<title> RealVest </title>
 		<link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.css">
 		<link rel="stylesheet" href="../static/user/css/base.css">
@@ -24,14 +23,17 @@
 					<div class="col s3 searchBarFormArea">
 						<form class="searchBarForm" method="POST" action="/search">
 								<input type = "text" class="modifyInput" placeholder="Please Input a City (i.e. Manhattan)" name="searchBarInput" required>
-								<input type = "submit" class="searchButton" value="Submit Search">					
+								<input type = "submit" class="searchButton" value="Search">					
 						</form>
 
 					</div>
-					<div class="col s3 navOption">
+					<div class="col s2 navOption">
 						<a href="/account" class="aTagNav">ACCOUNT</a>
 					</div>
-					<div class="col s3 navOption">
+					<div class="col s2 navOption">
+						<a href="/property/all" class="aTagNav">PROPERTIES</a>
+					</div>
+					<div class="col s2 navOption">
 						<a href="/logout" class="aTagNav">LOGOUT</a>
 					</div>
 				</div>
@@ -64,4 +66,4 @@
 	</body>
 
 
-</html
+</html>

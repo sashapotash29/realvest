@@ -1,4 +1,4 @@
-{% extends "user/base.html" %}
+{% extends "base.html" %}
 
 {% block css %}
 <link rel="stylesheet" href="../../static/user/css/login.css">
@@ -29,7 +29,7 @@
 			{{ rform.as_p }}
 			<input type='submit' value="Submit">
 		</form>
-		<p id="errorMessage">{{rError_message}}</p>
+		<p id="errorMessage">{{message}}</p>
 	</div>
 	<div class="col s4">
 		<h3> About </h3>
