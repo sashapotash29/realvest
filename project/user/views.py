@@ -8,7 +8,7 @@ from django.forms.models import model_to_dict
 from properties.models import Properties
 # Create your views here.
 
-
+#############################
 ######## route / #####
 
 def landing_page(request):
@@ -24,6 +24,7 @@ def landing_page(request):
 	else:
 		return('Error')
 
+#############################
 ######## route /login #####
 
 def home(request):
@@ -51,6 +52,8 @@ def home(request):
 			error = 'You must first sign in to view that page. If you do not have an account then you must sign up.'
 			args = {'rform':RegistrationForm(),'message':error, 'lform':AuthenticationForm()}
 			return render(request, 'user/login.html', args)
+
+#############################
 ######## route /register #####
 
 def register(request):
@@ -76,6 +79,7 @@ def register(request):
 	else:
 		print('wrong request sent')
 
+#################################
 ######## route /account  #####
 
 def account_private(request):
@@ -86,6 +90,7 @@ def account_private(request):
 	# print(args)
 	return render(request, 'user/personalPage.html', args)
 
+######## route /account/edit  #####
 
 def account_edit(request):
 	if reqiest.method == 'POST': 
