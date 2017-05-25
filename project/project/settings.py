@@ -119,7 +119,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-PROJECT_DIR = os.path.dirname(os.path.abspath('Desktop/RealVest/realvest/project/project'))
+PROJECT_DIR = os.path.dirname(os.path.abspath('realvest/project/project'))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
 
