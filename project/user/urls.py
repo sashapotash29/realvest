@@ -12,7 +12,7 @@ urlpatterns = [
 	url(r'^logout$', logout, {'template_name':'user/logout.html'}),
 	url(r'^account$', views.account_private, name="private_account"),
 	url(r'^account/edit$', views.account_edit, name="edit_account"),
-	# url(r'^account/edit$', views.account_edit, name="edit_account"),
+	url(r'^account/change-password$', views.change_password, name="change_password"),
 	
 	
 
