@@ -8,8 +8,8 @@ from django.contrib.auth.forms import (
 	PasswordChangeForm
 	)
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
-from .forms import RegistrationForm, EditAccountForm
 from django.forms.models import model_to_dict
+from .forms import RegistrationForm, EditAccountForm
 from properties.models import Properties
 # Create your views here.
 
@@ -87,6 +87,7 @@ def register(request):
 #################################
 ######## route /account  #####
 
+# @login_required
 def account_private(request):
 	# print(request.session)
 	# print(dir(request))
