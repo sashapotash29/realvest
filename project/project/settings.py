@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'project.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -124,6 +125,11 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
 
 LOGIN_URL = '/'
+
+LOGIN_EXEMPT_URL = (
+    r'^register$',
+    r'^logout$',
+)
 
 try:
     from .local_settings import *
