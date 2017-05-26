@@ -3,4 +3,5 @@ encodeing password before request?
 using django forms for login page >> look into just building own and how easy the django forms makes validation
 Forms.py not ready
 
-4/19:
+5/26:
+-Having issues with login-required custom middleware: "if not match(..." logic is not cathcing when /account route hits. Still unsure about cause. If that is replaced with the @login_required decorator on relevent routes in views than everything works just fine. 
