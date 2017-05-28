@@ -13,7 +13,7 @@
 	</div>
 
 	<div class="col s4">
-		<form action='/' method = 'GET' class="loginForm">
+		<form action="{% url 'login' %}" method = 'GET' class="loginForm">
 			{% csrf_token %}
 			<!-- <input class="loginTextInput" placeholder="Username" type="text" name="existUsername" required>
 			<input class="loginTextInput" placeholder="Password" type="password" name="existPassword" required> -->

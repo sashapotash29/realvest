@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'project.middleware.LoginRequiredMiddleware',
+    # 'project.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -129,6 +129,7 @@ LOGIN_URL = '/'
 LOGIN_EXEMPT_URL = (
     r'^register$',
     r'^logout$',
+    r'^$',
 )
 
 try:

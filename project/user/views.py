@@ -9,6 +9,7 @@ from django.contrib.auth.forms import (
 	)
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.forms.models import model_to_dict
+from django.urls import reverse
 from .forms import RegistrationForm, EditAccountForm
 from properties.models import Properties
 # Create your views here.
@@ -87,7 +88,7 @@ def register(request):
 #################################
 ######## route /account  #####
 
-# @login_required
+@login_required
 def account_private(request):
 	# print(request.session)
 	# print(dir(request))
@@ -98,18 +99,20 @@ def account_private(request):
 
 ######## route /account/edit  #####
 
+@login_required
 def account_edit(request):
 	if request.method == 'POST': 
 		form = EditAccountForm(request.POST, instance=request.user)
 
 		if form.is_valid():
 			form.save()
-			return redirect('/account')
+			return redirect(reverse('private_account'))
 	else:
-		return redirect('/account')
+		return redirect(reverse('private_account'))
 
 ###### route /account/change-password ###########
 
+@login_required
 def change_password(request):
 	if request.method == 'POST':
 		form = PasswordChangeForm(data=request.POST, user=request.user)
@@ -123,7 +126,7 @@ def change_password(request):
 			
 			return render(request, 'user/personalPage.html', args)
 		else:
-			return redirect('/account/change-password')
+			return redirect(reverse('change_password'))
 
 	else:
 		form = PasswordChangeForm(user=request.user)
