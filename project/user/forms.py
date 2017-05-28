@@ -53,3 +53,5 @@ class EditAccountForm(UserChangeForm):
 				'last_name',
 				'password'
 		)
+
+# class PasswordChangeForm():

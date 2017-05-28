@@ -5,5 +5,5 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-	url(r'^load$', views.load_conversation, name="login"),
+	url(r'^load$', views.load_conversation, name="load_message"),
 ]
