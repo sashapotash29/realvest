@@ -10,17 +10,15 @@
 	<div class="col s4">
 		<h4 class="loginTitle"> Login </h4>
 		<p id="errorMessage">{{lError_message}}</p>
-		<form action="{% url 'home'%}" method = 'POST' class="loginForm">
+		<form action="{% url 'user:home' %}" method = 'POST' class="loginForm">
 			{% csrf_token %}
-			<!-- <input class="loginTextInput" placeholder="Username" type="text" name="existUsername" required>
-			<input class="loginTextInput" placeholder="Password" type="password" name="existPassword" required> -->
 			{{ lform.as_p }}
-			<input type='submit' value="Submit">
+			<input type='submit' value="Enter">
 		</form>
 	</div>
 	<div class="col s4">
 		<h4 class="loginTitle"> Sign Up </h4>
-		<form action="{% url 'register' %}" method = 'POST' class="loginForm">
+		<form action="{% url 'user:register' %}" method = 'POST' class="loginForm">
 			{% csrf_token %}
 			<!-- <input class="loginTextInput" placeholder="Username" type="text" name="newUsername" required>
 			<input class="loginTextInput" placeholder="New Password" type="password" name="newPassword" required>

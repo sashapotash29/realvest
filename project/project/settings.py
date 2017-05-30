@@ -124,13 +124,16 @@ PROJECT_DIR = os.path.dirname(os.path.abspath('realvest/project/project'))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
 
-LOGIN_URL = '/'
+LOGIN_URL = '/logout'
 
-LOGIN_EXEMPT_URL = (
-    r'^register$',
-    r'^logout$',
-    r'^$',
-)
+## for custom middleware redirects
+
+# LOGIN_EXEMPT_URL = (
+#     r'^register$',
+#     r'^logout$',
+#     r'^$',
+# )
+
 
 try:
     from .local_settings import *
