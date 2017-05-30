@@ -16,7 +16,7 @@
 			<div class="col s10 middleNav">
 				<div class="row navBar">
 					<div class="col s3 logoArea">
-						<a href="{% url 'home' %}" class="logoRealVest" > RealVest
+						<a href="{% url 'user:home' %}" class="logoRealVest" > RealVest
 						</a>
 						<p class="motto"> "Pooled Real Estate Investment"</p>
 					</div>
@@ -28,13 +28,13 @@
 
 					</div>
 					<div class="col s2 navOption">
-						<a href="{% url 'private_account' %}" class="aTagNav">ACCOUNT</a>
+						<a href="{% url 'user:private_account' %}" class="aTagNav">ACCOUNT</a>
 					</div>
 					<div class="col s2 navOption">
-						<a href="{% url 'property_list' %}" class="aTagNav">PROPERTIES</a>
+						<a href="{% url 'properties:property_list' %}" class="aTagNav">PROPERTIES</a>
 					</div>
 					<div class="col s2 navOption">
-						<a href="{% url 'logout' %}" class="aTagNav">LOGOUT</a>
+						<a href="{% url 'user:logout' %}" class="aTagNav">LOGOUT</a>
 					</div>
 				</div>
 	    	</div>
