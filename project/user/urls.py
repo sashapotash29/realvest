@@ -10,11 +10,12 @@ from django.contrib.auth.views import (
 	password_reset_complete
 	)
 
-
+app_name = 'user'
+print('user app urls')
 urlpatterns = [
 	url(r'^$', views.landing_page, name="login"),
 	url(r'^register$', views.register, name="register"),
-	url(r'^login$', views.home, name="home"),
+	url(r'^home$', views.home, name="home"),
 	url(r'^logout$', logout, {'template_name':'user/logout.html'}, name="logout"),
 	url(r'^account$', views.account_private, name="private_account"),
 	url(r'^account/edit$', views.account_edit, name="edit_account"),

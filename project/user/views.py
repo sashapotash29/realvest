@@ -9,7 +9,7 @@ from django.contrib.auth.forms import (
 	)
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.forms.models import model_to_dict
-from django.urls import reverse
+# from django.urls import reverse
 from .forms import RegistrationForm, EditAccountForm
 from properties.models import Properties
 # Create your views here.
@@ -18,6 +18,7 @@ from properties.models import Properties
 ######## route / #####
 
 def landing_page(request):
+	print('in landing_page')
 	if request.method == "GET":
 		print(request.body)
 		logout(request)
@@ -106,9 +107,9 @@ def account_edit(request):
 
 		if form.is_valid():
 			form.save()
-			return redirect(reverse('private_account'))
+			return redirect('/account')
 	else:
-		return redirect(reverse('private_account'))
+		return redirect('/account')
 
 ###### route /account/change-password ###########
 
@@ -126,7 +127,7 @@ def change_password(request):
 			
 			return render(request, 'user/personalPage.html', args)
 		else:
-			return redirect(reverse('change_password'))
+			return redirect('/account/change-password')
 
 	else:
 		form = PasswordChangeForm(user=request.user)
