@@ -1,5 +1,9 @@
-from django.shortcuts import render
+import json
 
+from .seeder import seed_prop_to_db
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 def show_all(request):
@@ -12,8 +16,15 @@ def edit_prop(request, id):
 	pass
 
 
-########### single time use to be hit from Flask app ########
+########### Single time use to be hit from seed.py outside 
+########### Django project directory 
 
+@csrf_exempt
 def seed_prop(request):
-	pass
-
+	if request.method == "POST":
+		data=request.body.decode()
+		body=json.loads(data)
+		# print(dir(request))
+		print(body['result'][0])
+		seed_prop_to_db(body['result'][0])
+		return HttpResponse('good')
