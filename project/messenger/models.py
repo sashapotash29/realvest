@@ -22,4 +22,4 @@ class Message(models.Model):
 	def __str__(self):
 		return self.content
 		
-print('models finish, messenger')
+# print('models finish, messenger')

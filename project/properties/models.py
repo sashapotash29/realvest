@@ -17,6 +17,7 @@ class Properties(models.Model):
 	current_price = models.FloatField()
 	status = models.CharField(max_length=10)
 	date_upload = models.DateField()
+	image = models.ImageField(upload_to='property_image', blank=True)
 
 	def __str__(self):
 		return self.building_name
@@ -38,4 +39,4 @@ class UserProp(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	prop = models.ForeignKey(Properties, on_delete=models.CASCADE)
 
-print('models finish, properties')
+# print('models finish, properties')
