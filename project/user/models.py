@@ -14,7 +14,6 @@ from django.db.models.signals import post_save
 
 # 	def __str__(self):
 # 		return self.username
-print('models finish, user')
 
 class UserProfile(models.Model):
 	user = models.OneToOneField(User)
@@ -23,6 +22,7 @@ class UserProfile(models.Model):
 	state = models.CharField(max_length=2, default ='')
 	investor_type = models.CharField(max_length=15, default ='')
 	looking = models.BooleanField(default=1)
+	image = models.ImageField(upload_to='profile_image', blank=True)
 
 	def __str__(self):
 		return self.user
@@ -32,5 +32,7 @@ def create_profile(sender, **kwargs):
 		user_profile = UserProfile.objects.create(user=kwargs['instance'])
 
 post_save.connect(create_profile, sender=User)
+
+# print('models finish, user')
 
 ### double check tutorial here for post_save!!!!!!!
