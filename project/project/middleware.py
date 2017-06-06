@@ -1,7 +1,7 @@
-import re
-from django.conf import settings
-from django.shortcuts import redirect
-print('in middleware.py')
+# import re
+# from django.conf import settings
+# from django.shortcuts import redirect
+# print('in middleware.py')
 
 
 ## EXEMPT_URL = [re.compile(settings.LOGIN_EXEMPT_URL.lstrip('/'))]
