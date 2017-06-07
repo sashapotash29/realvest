@@ -130,11 +130,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'project/media')
 
 LOGIN_URL = '/'
 
-LOGIN_EXEMPT_URL = (
-    r'^register$',
-    r'^logout$',
-    r'^$',
-)
+# LOGIN_EXEMPT_URL = (
+#     r'^register$',
+#     r'^logout$',
+#     r'^$',
+# )
 
 try:
     from .local_settings import *
