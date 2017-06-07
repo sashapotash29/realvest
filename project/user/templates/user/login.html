@@ -12,8 +12,6 @@
 		<p id="errorMessage">{{lError_message}}</p>
 		<form action="{% url 'user:home' %}" method = 'POST' class="loginForm">
 			{% csrf_token %}
-			<!-- <input class="loginTextInput" placeholder="Username" type="text" name="existUsername" required>
-			<input class="loginTextInput" placeholder="Password" type="password" name="existPassword" required> -->
 			{{ lform.as_p }}
 			<input type='submit' value="Enter">
 		</form>
