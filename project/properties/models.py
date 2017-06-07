@@ -20,7 +20,7 @@ class Properties(models.Model):
 	image = models.ImageField(upload_to='property_image', blank=True)
 
 	def __str__(self):
-		return self.building_name
+		return self.address
 
 
 class Comment(models.Model):
