@@ -2,6 +2,12 @@ from django.db import models
 from user.models import User
 # Create your models here.
 
+
+class PropertiesManager(models.Manager):
+	
+	def get_queryset(self):
+		return super(PropertiesManager, self).get_queryset().filter(term=item)
+
 class Properties(models.Model):
 	id = models.AutoField(primary_key=True)
 	building_name = models.CharField(max_length=40)
@@ -18,6 +24,8 @@ class Properties(models.Model):
 	status = models.CharField(max_length=10)
 	date_upload = models.DateField()
 	image = models.ImageField(upload_to='property_image', blank=True)
+
+	search = PropertiesManager()
 
 	def __str__(self):
 		return self.address

@@ -6,7 +6,8 @@ Forms.py not ready
 5/26:
 -Having issues with login-required custom middleware: "if not match(..." logic is not cathcing when /account route hits. Still unsure about cause. If that is replaced with the @login_required decorator on relevent routes in views than everything works just fine.
 
-
+6/7:
+Look into model managers class for filtering functionality of properties/users (in model.py)
 
 
 
