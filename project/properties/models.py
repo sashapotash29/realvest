@@ -4,9 +4,9 @@ from user.models import User
 
 
 class PropertiesManager(models.Manager):
-	
-	def get_queryset(self):
-		return super(PropertiesManager, self).get_queryset().filter(term=item)
+	pass
+# 	def get_queryset(self):
+# 		return super(PropertiesManager, self).get_queryset().filter(term=item)
 
 class Properties(models.Model):
 	id = models.AutoField(primary_key=True)

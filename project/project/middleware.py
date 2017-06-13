@@ -4,11 +4,11 @@
 # print('in middleware.py')
 
 
-## EXEMPT_URL = [re.compile(settings.LOGIN_EXEMPT_URL.lstrip('/'))]
+# # EXEMPT_URL = [re.compile(settings.LOGIN_EXEMPT_URL.lstrip('/'))]
 
 # if hasattr(settings, 'LOGIN_EXEMPT_URL'):
-	# EXEMPT_URLS = [re.compile(url) for url in settings.LOGIN_EXEMPT_URL]
-	## EXEMPT_URL.append(EXEMPTs)
+# 	EXEMPT_URLS = [re.compile(url) for url in settings.LOGIN_EXEMPT_URL]
+# 	# EXEMPT_URL.append(EXEMPTs)
 
 
 # class LoginRequiredMiddleware:
