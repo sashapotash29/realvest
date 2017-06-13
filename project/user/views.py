@@ -34,6 +34,7 @@ def landing_page(request):
 #############################
 ######## route /login #####
 
+
 def home(request):
 	if request.method == "POST":
 		print('==============', request.user)
