@@ -149,12 +149,12 @@ for obj in prop_list:
 					print("REQUEST TIME")
 					print('')
 
-					r = requests.post('http://127.0.0.1:8000/property/seed',data=json.dumps(final_product))
+					# r = requests.post('http://127.0.0.1:8000/property/seed',data=json.dumps(final_product))
 					print('')
 					print("REQUEST PROCESSED")
 					print('')
 
-					print(r.status_code, r.reason,'property finished')
+					# print(r.status_code, r.reason,'property finished')
 
 		# final_product = {}
 		# final_product['result'] = prop_obj_list
