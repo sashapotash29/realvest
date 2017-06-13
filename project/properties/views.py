@@ -1,17 +1,21 @@
 import json
 
+from django.contrib.auth.decorators import login_required
 from .seeder import seed_prop_to_db
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
+@login_required
 def show_all(request):
 	return render(request, 'properties/properties.html')
 
+@login_required
 def single(request, id):
 	return render(request, 'properties/singleProperty.html')
 
+@login_required
 def edit_prop(request, id):
 	pass
 

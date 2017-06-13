@@ -32,7 +32,7 @@ def landing_page(request):
 		return('Error')
 
 #############################
-######## route /login #####
+######## route /home #####
 
 
 def home(request):
