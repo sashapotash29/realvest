@@ -34,6 +34,7 @@ def landing_page(request):
 #############################
 ######## route /login #####
 
+
 def home(request):
 	if request.method == "POST":
 		print('==============', request.user)
@@ -52,7 +53,7 @@ def home(request):
 			return render(request, 'user/login.html',args)
 	
 	if request.method == "GET":
-		if request.user:
+		if request.user.is_authenticated():
 			args = {'user':request.user}
 			return render(request, 'user/home.html', args)
 		else:
