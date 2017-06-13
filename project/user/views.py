@@ -53,7 +53,7 @@ def home(request):
 			return render(request, 'user/login.html',args)
 	
 	if request.method == "GET":
-		if request.user:
+		if request.user.is_authenticated():
 			args = {'user':request.user}
 			return render(request, 'user/home.html', args)
 		else:
