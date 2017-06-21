@@ -33,13 +33,7 @@ loadXMLDoc(url)
 
 var create_li = function(property){
 	var new_li = document.createElement('li');
-	new_li.className = 'col s12 propertiesListColumn';
-	var cardDiv = document.createElement('div');
-	cardDiv.className'class', 'card blue-grey darken-1';
-	var cardContentDiv = document.createElement('div');
-	cardContentDiv.className = 'card-content white-text'
+	new_li.setAttribute('class', )
 
 };
-
-
 
