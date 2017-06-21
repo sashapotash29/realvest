@@ -11,6 +11,9 @@ from django.views.decorators.csrf import csrf_exempt
 def show_all(request):
 	return render(request, 'properties/properties.html')
 
+def deliver_props(request):
+	pass
+
 @login_required
 def single(request, id):
 	return render(request, 'properties/singleProperty.html')

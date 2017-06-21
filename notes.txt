@@ -9,6 +9,16 @@ Forms.py not ready
 6/7:
 Look into model managers class for filtering functionality of properties/users (in model.py)
 
+6/21: (Sasha)
+
+- Created properties.css, properties.js
+- Old properties.html is now called properties_old.html
+- Current HTML being rendered from "properties/all" route is properties.html
+- Created filter bar.
+- Added to views.py new function to grab properties from DB.
+- Added to urls.py new route to make request for properties.
+
+
 
 
 
