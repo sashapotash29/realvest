@@ -1,3 +1,15 @@
+/*Change to Materialize CSS Defaults*/
+
+
+.row .col {
+
+	padding:0;
+
+
+}
+
+
+
 .wrapEverything{
 	margin:0;
 
@@ -12,7 +24,7 @@
 
 .navPortion{
 
-	height:15vh;
+	/*height:15vh;*/
 	background-color: #E4B363;
 	margin:0;
 	padding:0;
