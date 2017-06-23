@@ -11,7 +11,7 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.forms.models import model_to_dict
 # from django.urls import reverse
 from .forms import RegistrationForm, EditAccountForm
-from properties.models import Properties
+# from properties.models import Properties
 # Create your views here.
 
 #############################
@@ -20,7 +20,7 @@ from properties.models import Properties
 def landing_page(request):
 	print('in landing_page')
 	if request.method == "GET":
-		print(request.body)
+		print("request.body", request.body)
 		logout(request)
 		# print(request.GET)
 		args = {'rform':RegistrationForm(), 'lform':AuthenticationForm()}
@@ -33,6 +33,7 @@ def landing_page(request):
 
 #############################
 ######## route /home #####
+
 
 def home(request):
 	if request.method == "POST":
@@ -52,7 +53,7 @@ def home(request):
 			return render(request, 'user/login.html',args)
 	
 	if request.method == "GET":
-		if request.user:
+		if request.user.is_authenticated():
 			args = {'user':request.user}
 			return render(request, 'user/home.html', args)
 		else:

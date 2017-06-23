@@ -9,6 +9,24 @@ Forms.py not ready
 6/7:
 Look into model managers class for filtering functionality of properties/users (in model.py)
 
+6/21: (Sasha)
+
+1st Pull Request:
+
+- Created properties.css, properties.js
+- Old properties.html is now called properties_old.html
+- Current HTML being rendered from "properties/all" route is properties.html
+- Created filter bar.
+- Added to views.py new function to grab properties from DB.
+- Added to urls.py new route to make request for properties.
+
+2nd Pull Request:
+(DO NOT CONFIRM PULL REQUEST UNTIL WE MEET TOMORROW!)
+- Created deliver_props(request) method in properties/views.py . 
+- Created Properties.jsonify(self) method to convert QueryDict object into a serializable Python dictionary.
+- Created method to make AJAX request upon load to receive properties. 
+- Began writing the method to create <li> tags for each property received.
+
 
 
 

@@ -1,0 +1,64 @@
+/*EXTENDS FROM base.css*/
+/* CSS order read from top of webpage down*/
+
+/*Changing Materialize Defaults*/
+
+.row{
+	margin:0;
+	padding:0;
+
+}
+
+.col{
+	margin: 0;
+	padding: 0;
+
+
+}
+
+input:not([type]), input[type=text], 
+input[type=password], input[type=email],
+input[type=url], input[type=time],
+input[type=date], input[type=datetime], 
+input[type=datetime-local], input[type=tel], 
+input[type=number], input[type=search], 
+textarea.materialize-textarea  {
+
+    margin:2%;
+}
+
+/*FILTER AREA*/
+
+
+
+.filterRow{
+	background-color: pink;
+
+}
+
+.filterColumn{
+
+	border: dashed black 2px;
+
+}
+
+.filterInput{
+	margin: 0;
+	padding: 0;
+}
+
+
+#cityChoice{
+	display: flex;
+
+}
+
+.propertiesListColumn{
+
+	overflow-y: auto;
+	height:60%;
+
+}
+
+
+
