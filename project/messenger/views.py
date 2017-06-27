@@ -5,11 +5,11 @@ from django.http import JSONResponse
 
 class PostMessageView(View):
 
+	def get(self, request, *args):
+		pass
 
-	def post(eself, request, *args):
+	def post(self, request, *args):
 		pass
 
 
 
-def load_conversation(request, id):
- 	pass

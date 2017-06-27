@@ -6,6 +6,6 @@ from django.conf.urls.static import static
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-	url(r'^post$', login_required(PostMessageView.as_view(message)), name="post_message"),
-	url(r'^load$', login_required(LoadMessageView.as_view()), name="load_conversation"),
+	url(r'^post/([0-9]{12})$', login_required(PostMessageView.as_view(message)), name="post_message"),
+	url(r'^load/([0-9]{12})$', login_required(PostMessageView.as_view()), name="load_conversation"),
 ]
