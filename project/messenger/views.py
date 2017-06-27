@@ -1,5 +1,15 @@
 from django.shortcuts import render
-
+from django.views import View
+from django.http import JSONResponse
 # Create your views here.
-def load_conversation(request, id):
- 	pass
+
+class PostMessageView(View):
+
+	def get(self, request, *args):
+		pass
+
+	def post(self, request, *args):
+		pass
+
+
+
