@@ -34,11 +34,11 @@
 
 .mainStruct{
 
-	height:100vh;
+	height:100%;
 	margin:0;
 	margin-bottom: 0;
 	padding:0;
-	overflow-y: auto;
+
 
 }
 
@@ -48,9 +48,9 @@
 	background-color: #BEBFC1;
 	border:none;
 
-
-
 }
+
+
 .middleNav{
 
 	margin:0;

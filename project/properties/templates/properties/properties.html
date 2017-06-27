@@ -6,54 +6,79 @@
 
 
 {% block body %}
-	<div class = "row filterRow">
+	<div class = "row filterButtonArea">
+		<div class = "col s11 filterButtonBlankSpace"></div>
+		<div class = "col s1 filterButtonSpot">
+			<input type="submit" value="Filter Options" id = "filterToggleButton"> 
+		</div>
+	</div>
+	<div class = "row filterArea" id = "filterArea">
+		<div class = "row filterRowOne">
+			<div class = "col s3 filterColumn" id="filterTitle">
+				<h4 id = "filterOptionsHeader"> Filter Options </h4>
+			</div>
 
-		<div class = "col s2 filterColumn" id="filterTitle">
-			<h5> Filter Options </h5>
+			<div class = "col s3 filterColumn" id="priceRangeChoice">
+				<h5 class = "filterOptionName"> Price Range: </h5>
+				<input type="text" class="filterInput" id="minInput" placeholder="Minimum Price" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+				<input type="text" class="filterInput" id="maxInput" placeholder="Maximum Price" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+			</div>
+
+			<div class = "col s3 filterColumn" id="cityChoice">
+				<h5 class = "filterOptionName"> City: </h5>
+				<input type="text" class="filterInput" id="cityInput" placeholder="i.e. New York, Brooklyn, etc.">
+			</div>
+			<div class = "col s3 filterColumn" id="cityChoice">
+				<h5 class = "filterOptionName" > State: </h5>
+				<input type="text" class="filterInput" id="stateInput" placeholder="i.e. NY, NJ, etc.">
+			</div>
 		</div>
 
-		<div class = "col s4 filterColumn" id="cityChoice">
-			<h6> City </h6>
-			<input type="text" class="filterInput" id="cityInput">
-		</div>
-		<div class = "col s4 filterColumn" id="cityChoice">
-			<h6> State </h6>
-			<input type="text" class="filterInput" id="stateInput">
-		</div>
-		<div class = "col s2 filterColumn" id="hideButton">
-			<input type="submit" id = "hideInput" value = "Hide">
-		</div>
+		<div class = "row filterRowOne">
+			<div class = "col s3 filterExplanation">
+				<ul style='padding-left: 1%;'>
+					<li> Please fill in the Filter Options to left. </li>
+					<li> The City and State Options both automatically adjust the Property List below. </li>
+				</ul>
+			</div>
+			<div class = "col s3 filterColumn" id="bedroomsChoice">
+				<h5 class = "filterOptionName"> # of Bedrooms: </h5>
+				<input type="text" class="filterInput" id="bedroomsInput" placeholder="i.e. 1,2, etc." onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+			</div>
 
+			<div class = "col s6 filterColumn" id="searchButton">
+				<input type="submit" id = "searchInput" value = "Search">
+			</div>
+
+			<!-- <div class = "col s3 filterColumn" id="cityChoice">
+				<h5> City: </h5>
+				<input type="text" class="filterInput" id="cityInput" placeholder="i.e. Manhattan, Brooklyn, Jersey City, etc.">
+			</div>
+			<div class = "col s3 filterColumn" id="cityChoice">
+				<h5> State: </h5>
+				<input type="text" class="filterInput" id="stateInput" placeholder="i.e. NY, NJ, etc.">
+			</div> -->
+
+		</div>
 	</div>
 
 	<div class = "row propertiesRow">
-		<ul>
-			<li class = "col s12 propertiesListColumn">
+		<h3 id = "propertyListTitle"> Property List </h3>
+		<ul id = "propertyList">
+			<!-- <li class = "col s12 propertiesListItem">
 				<div class="card blue-grey darken-1">
 		            <div class="card-content white-text">
 		              <span class="card-title">EXAMPLE</span>
 		              <p>I am a very simple card. I am good at containing small bits of information.
 		              I am convenient because I require little markup to use effectively.</p>
-		            </div>
+		            </div> -->
 	<!--             <div class="card-action">
 	              <a href="#">This is a link</a>
 	              <a href="#">This is a link</a>
 	            	</div> -->
-	          	</div>
-			</li>
-			<li class = "col s12 propertiesListColumn">
-				<div class="card blue-grey darken-1">
-		            <div class="card-content white-text">
-		              <span class="card-title">EXAMPLE</span>
-		              <p>I am a very simple card. I am good at containing small bits of information.
-		              I am convenient because I require little markup to use effectively.</p>
-		            </div>
-	<!--             <div class="card-action">
-	              <a href="#">This is a link</a>
-	              <a href="#">This is a link</a>
-	            	</div> -->
-	          	</div>
-			</li>
+	          	<!-- </div>
+			</li> -->
+			
 		</ul>
 
 	</div>

@@ -13,7 +13,6 @@
 	margin: 0;
 	padding: 0;
 
-
 }
 
 input:not([type]), input[type=text], 
@@ -25,11 +24,39 @@ input[type=number], input[type=search],
 textarea.materialize-textarea  {
 
     margin:2%;
+	text-align: center;
+	width: 60%;
+
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    lightblue;
+     opacity: 1 !important;
 }
 
 /*FILTER AREA*/
 
+#filterOptionsHeader{
+	text-decoration: underline;
+	
 
+}
+
+
+.filterButtonArea{
+
+	margin-top: 1%;
+	margin-bottom: 1%;
+
+}
+
+
+.filterArea{
+	border: solid black 2px;	
+	
+	display: none;
+
+}
 
 .filterRow{
 	background-color: pink;
@@ -38,13 +65,23 @@ textarea.materialize-textarea  {
 
 .filterColumn{
 
-	border: dashed black 2px;
+	border: dashed red 1px;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+
+}
+
+.filterOptionName{
+	text-align: center;
+	color: darkblue;
 
 }
 
 .filterInput{
 	margin: 0;
 	padding: 0;
+	width: 60%;
 }
 
 
@@ -53,12 +90,44 @@ textarea.materialize-textarea  {
 
 }
 
-.propertiesListColumn{
+#searchInput{
 
-	overflow-y: auto;
-	height:60%;
+	height:10vh;
+	width:40%;
+	font-size: 300%;
 
 }
 
+/*PROPERTTIES LIST SECTION*/
 
+
+
+.propertiesRow{
+
+	/*overflow-y: auto;*/
+	/*height:60%;*/
+	margin-left: 2vh;
+	margin-right: 2vh;
+	border-top: grey 2px solid;
+	margin-top: 3%;
+
+}
+
+/*.propertiesListItem{
+	height:10vh;
+
+
+}*/
+
+.card .card-content{
+	padding: 2%;
+
+}
+
+.propertyTitle{
+
+	margin:0;
+	padding: 0;
+
+}
 
