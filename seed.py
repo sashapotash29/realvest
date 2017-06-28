@@ -128,7 +128,8 @@ for obj in prop_list:
 						zestimate_dict = principal_dict['zestimate']
 						price = zestimate_dict['amount']['#text']
 						date = datetime.strptime(zestimate_dict['last-updated'],'%m/%d/%Y').date()
-						coordinates = address_info['latitude'] + "SEPERATOR" + address_info['longitude']
+						latitude = address_info['latitude'] 
+						longitude = address_info['longitude']
 						print(date)
 						print('zestimate_dict')
 						print(zestimate_dict)
@@ -136,7 +137,8 @@ for obj in prop_list:
 						request_obj = {
 							'building_name': obj['name'],
 							'date_updated': str(date),
-							'coordinates': coordinates,
+							'longitude': longitude,
+							'latitude': latitude,
 							'sq_ft': sq_ft,
 							'bedrooms': bedrooms,
 							'bathrooms': bathrooms,
