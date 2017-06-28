@@ -46,6 +46,9 @@ Look into model managers class for filtering functionality of properties/users (
 	- static/properties/images
 - uhoh.py has been added to allow for Google Maps. In future, we need to decidee how to pass the API key securely.
 
+- Fixed Home page to have properties appear.
+- Added quickSearch to homepage.
+
 
 
 
