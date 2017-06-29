@@ -59,4 +59,5 @@ class UserProp(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	prop = models.ForeignKey(Properties, on_delete=models.CASCADE)
 
+
 # print('models finish, properties')
