@@ -11,7 +11,9 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.forms.models import model_to_dict
 # from django.urls import reverse
 from .forms import RegistrationForm, EditAccountForm
-# from properties.models import Properties
+
+# Import Relevant Models
+from properties.models import Properties
 # Create your views here.
 
 #############################
@@ -45,7 +47,7 @@ def home(request):
 		print(user)
 		if user is not None:
 			login(request, user)
-			args = {'user':request.user}
+			args = {'user':request.user, 'properties': Properties.properties.all()}
 			return render(request, 'user/home.html', args)
 		else:
 			error = 'The Username and Password you have provided was not correct.'
@@ -54,7 +56,7 @@ def home(request):
 	
 	if request.method == "GET":
 		if request.user.is_authenticated():
-			args = {'user':request.user}
+			args = {'user':request.user, 'properties': Properties.properties.all() }
 			return render(request, 'user/home.html', args)
 		else:
 			error = 'You must first sign in to view that page. If you do not have an account then you must sign up.'
