@@ -1,5 +1,6 @@
 from django.db import models
 from user.models import User
+from datetime import datetime
 # Create your models here.
 
 
@@ -23,8 +24,10 @@ class Properties(models.Model):
 	past_price = models.FloatField()
 	current_price = models.FloatField()
 	status = models.CharField(max_length=10)
-	date_upload = models.DateField()
+	date_upload = models.DateField(auto_now_add=True)
 	image = models.ImageField(upload_to='property_image', blank=True)
+	realtor_id = models.ForeignKey(User, on_delete=models.CASCADE, default = 1) # Remove default in production setting
+
 
 	properties = models.Manager()
 
@@ -47,18 +50,23 @@ class Properties(models.Model):
 
 class Comment(models.Model):
 	id = models.AutoField(primary_key=True)
-	content = models.CharField(max_length=200)
-	datetime = models.DateTimeField()
-	prop = models.ForeignKey(Properties, on_delete=models.CASCADE)
-	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	content = models.CharField(max_length=500)
+	datetime = models.DateTimeField(auto_now_add = True)
+	prop_id = models.ForeignKey(Properties, on_delete=models.CASCADE)
+	user_id = models.ForeignKey(User, on_delete=models.CASCADE)
 
 	def __str__(self):
 		return self.content
 
 
-class UserProp(models.Model):
+class Investment(models.Model):
 	id = models.AutoField(primary_key=True)
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	prop = models.ForeignKey(Properties, on_delete=models.CASCADE)
+	amount = models.FloatField()
+
 
 # print('models finish, properties')
+
+
+

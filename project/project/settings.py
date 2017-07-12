@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'user',
     'properties',
     'messenger',
+    'realtor',
 ]
 
 MIDDLEWARE = [
