@@ -36,7 +36,6 @@ def landing_page(request):
 #############################
 ######## route /home #####
 
-
 def home(request):
 	if request.method == "POST":
 		print('==============', request.user)
@@ -48,6 +47,7 @@ def home(request):
 		if user is not None:
 			login(request, user)
 			args = {'user':request.user, 'properties': Properties.properties.all()}
+
 			return render(request, 'user/home.html', args)
 		else:
 			error = 'The Username and Password you have provided was not correct.'

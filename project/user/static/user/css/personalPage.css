@@ -1,12 +1,79 @@
+/*Materialize Override*/
+
+.row .col.s4 {
+
+	    margin-left: 1%;
+}
+
+
+
+.personalInfoCol{
+
+	width:33.33%;
+
+}
+
+
 .hypotheticalProfilePic{
 
-	border: dashed grey;
+	border: dashed blue;
 	background-color: lightyellow;
 	height: 30vh;
 	text-align: center;
 	vertical-align: center;
 	margin-top: 2vh;
 
+
+}
+
+.userInfo{
+
+	border: solid grey;
+	margin-top: 2%;
+	margin-left: 1%;
+	margin-right: 1%;
+
+
+}
+
+.userInfoHeader{
+
+	margin:0;
+	padding:0;
+	margin-left: 1%;
+	text-decoration: underline;
+
+}
+
+.userInfoText{
+	margin:0;
+	padding:0;
+	margin-left: 2%;
+	font-size: 5vh;
+}
+
+
+#descriptionBox{
+
+	height:30%;
+	padding-left: 1%;
+	padding-right: 1%;
+
+}
+
+#changeInfoText{
+	margin:0;
+	padding:0;
+	margin-left: 2%;
+	color: darkblue;
+
+
+}
+
+.changeUserInfo{
+
+	margin-left: 1%;
+	margin-bottom:1%;
 
 }
 
@@ -18,13 +85,7 @@
 
 }
 
-.userInfo{
 
-	border: solid grey;
-	margin-top: 2vh;
-
-
-}
 .submitNewUserInfo{
 	margin-bottom: 2%;
 
@@ -36,9 +97,3 @@
 
 }
 
-/*.card{
-
-	height:30vh;
-	margin-bottom: 1em;
-
-}*/
