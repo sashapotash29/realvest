@@ -70,3 +70,4 @@ class Investment(models.Model):
 
 
 
+

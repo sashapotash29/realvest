@@ -6,7 +6,8 @@ from django.http import JsonResponse
 class PostMessageView(View):
 
 	def get(self, request, *args):
-		pass
+		print(dir(request))
+		return JsonResponse({'response':'hello'})
 
 	def post(self, request, *args):
 		pass
