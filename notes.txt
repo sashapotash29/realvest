@@ -3,11 +3,14 @@ encodeing password before request?
 using django forms for login page >> look into just building own and how easy the django forms makes validation
 Forms.py not ready
 
+
 5/26:
 -Having issues with login-required custom middleware: "if not match(..." logic is not cathcing when /account route hits. Still unsure about cause. If that is replaced with the @login_required decorator on relevent routes in views than everything works just fine.
 
+
 6/7:
 Look into model managers class for filtering functionality of properties/users (in model.py)
+
 
 6/21: (Sasha)
 
@@ -28,6 +31,23 @@ Look into model managers class for filtering functionality of properties/users (
 - Began writing the method to create <li> tags for each property received.
 
 
+6/27: Filter Functionality (Sasha)
+
+- Changed filter set up to have hide functionality.
+- Filtering works by clicking "Search" button rather than keyup event.
+- Filter by City, State, Price Range, Bedrooms.
+	- NOTE need to fix filter to allow no city/state input.
+
+6/28: Image Slideshow. Single Property HTML Hooked up.
+
+- Created <div> on singleProperty.html for image slideshow.
+- Javascript functions added to singleProperty.js for slideshow movement.
+- Images are not read from database but stored in the following file path:
+	- static/properties/images
+- uhoh.py has been added to allow for Google Maps. In future, we need to decidee how to pass the API key securely.
+
+- Fixed Home page to have properties appear.
+- Added quickSearch to homepage.
 
 
 

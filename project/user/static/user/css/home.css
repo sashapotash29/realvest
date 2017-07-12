@@ -1,7 +1,71 @@
-.propertyListHeader{
-	font-size: 4vh;
-	text-decoration: underline;
+/*Materialize Overide*/
+.input-field textarea:focus + label {
+  color: #2196f3 !important;
+}
+
+input:not([type]), input[type=text], 
+input[type=password], input[type=email],
+input[type=url], input[type=time],
+input[type=date], input[type=datetime], 
+input[type=datetime-local], input[type=tel], 
+input[type=number], input[type=search], 
+textarea.materialize-textarea, {
+
+    margin:2%;
 	text-align: center;
+	width: 60%;
+
+}
+
+input::placeholder{
+
+	color: darkblue;
+	text-align: center;
+
+}
+
+
+/*Quick Search and Welcome Bar*/
+
+.cityStateQuickSearch{
+	display: flex;
+	align-items: center;
+	flex-direction: center;
 
 
 }
+
+#cityStateInput{
+
+	width: 40%;
+	margin:auto;
+	border: 1px solid;
+    border-radius: 25px;
+    margin-top: 1%;
+    text-align: center;
+
+
+}
+
+
+/*PROPERTY PORTION*/
+
+
+.card .card-content{
+	padding: 1%;
+
+}
+
+
+.card .card-action {
+	padding:0.5%;
+
+}
+
+.propertyTitle{
+
+	margin:0;
+	padding: 0;
+
+}
+

@@ -1,24 +1,34 @@
 {% extends "base.html" %}
 
 {% block css %}
-<link rel="stylesheet" href="/static/properties/css/properties.css">
+<link rel="stylesheet" href="/static/properties/css/singleProperty.css">
 {% endblock %}
 
 
 {% block body %}
 	<div class="row titlesArea">
 		<div class="col s4 titles">
+			<h3>Images</h3>
+		</div>
+		<div class="col s4 titles">
 			<h3>Google Map</h3>
 		</div>
-		<div class="col s8 titles">
+		<div class="col s4 titles">
 			<h3>Property Facts</h3>
 		</div>
 	</div>
 
 	<div class="row property">
-		<div class="col s4 propertyInfoArea googleMaps" data-lat="{{lat}}" data-long="{{long}}">
+		<div class="col s4 propertyInfoArea slideShow">
+			<img class = "slideShowImage" src="/static/properties/images/picture1.jpg">
+			<img class = "slideShowImage" src="/static/properties/images/picture2.jpg">
+			<img class = "slideShowImage" src="/static/properties/images/picture3.jpg">
+			<button class="slideShowButton" onclick="plusDivs(-1)">&#10094;</button>
+			<button class="slideShowButton" onclick="plusDivs(+1)">&#10095;</button>
 		</div>
-		<div class="col s8 propertyInfoArea">
+		<div class="col s4 propertyInfoArea googleMaps" data-long="{{property.longitude}}" data-lat = "{{property.latitude}}">
+		</div>
+		<div class="col s4 propertyInfoArea propertyFacts">
 			<ul id = "propertyInfoUl" class="singlePagePropInfo" data-id={{property.id}}>
 				<li> <span style="font-weight:bold;">Address: </span> {{property.address}}, {{property.city}}, {{property.state}}, {{property.zipcode}} </li>
 				{% if property.bedrooms == 0 %}
@@ -42,7 +52,7 @@
 		</div>
 
 	</div>
-	<div class="row buttonsSP">
+	<!-- <div class="row buttonsSP">
 		{% if check %}
 			<div class="col s4 buttonsSingleProperty">
 				<a class = "viewAccountToSee" href="/account"> View your Account to see </a>
@@ -66,7 +76,7 @@
 				<input class = "saveInvest" type='submit' value="Invest" id="investButton">
 			</div>
 		{% endif %}
-	</div>
+	</div> -->
 
 	<div class="row investFormArea">
 		<div class="col s6 formArea">
@@ -85,7 +95,7 @@
 			<ul class="investorOnPropertyUL">
 			{% if investors %}
 			{% for investor in investors %}
-				<li class="investorOnProperty"> User: <a>{{investor['name']}}</a>   <p class="investedAmountP"> Amount Invested: <span class="moneys">${{investor['amount']}} </span> </p>
+				<li class="investorOnProperty"> User: <a>{{investor.name}}</a>   <p class="investedAmountP"> Amount Invested: <span class="moneys">${{investor.amount}} </span> </p>
 				</li>
 			{% endfor %}
 			{% else %}
@@ -101,5 +111,5 @@
 {% block js %}
 <script src="https://maps.googleapis.com/maps/api/js?key={{uhoh}}&callback=initMap"
     async defer></script>
-<script src="/static/properties/js/properties.js"></script>
+<script src="/static/properties/js/singleProperty.js"></script>
 {% endblock %}

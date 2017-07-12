@@ -6,7 +6,8 @@ def seed_prop_to_db(data):
 	print('seed func')
 	prop = Properties(
 				building_name = data['building_name'],
-				coordinates = data['coordinates'],
+				longitude =  data['longitude'],
+				latitude = data['latitude'],
 				sq_ft = data['sq_ft'],
 				bedrooms = data['bedrooms'],
 				bathrooms = data['bathrooms'],

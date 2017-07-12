@@ -12,6 +12,10 @@ from django.views.decorators.csrf import csrf_exempt
 from properties.models import Properties
 # Create your views here.
 
+# Import for Google Maps API key
+from .uhoh import uhoh
+
+
 @login_required
 def show_all(request):
 	return render(request, 'properties/properties.html')
@@ -28,8 +32,13 @@ def deliver_props(request):
 
 
 @login_required
-def single(request, id):
-	return render(request, 'properties/singleProperty.html')
+def single(request, idNumber):
+	print("JAHAAHSHDAS")
+	print(request.method)
+	print('idNumber:', idNumber)
+	result = Properties.properties.all().get(id = int(idNumber))
+	print(result)
+	return render(request, 'properties/singleProperty.html',{'property': result, 'uhoh': uhoh})
 
 @login_required
 def edit_prop(request, id):

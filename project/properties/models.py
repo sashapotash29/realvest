@@ -11,7 +11,8 @@ from user.models import User
 class Properties(models.Model):
 	id = models.AutoField(primary_key=True)
 	building_name = models.CharField(max_length=40)
-	coordinates = models.CharField(max_length=50)
+	longitude = models.CharField(max_length=40)
+	latitude = models.CharField(max_length=40)
 	sq_ft = models.FloatField()
 	bedrooms = models.FloatField()
 	bathrooms = models.FloatField()
@@ -33,7 +34,8 @@ class Properties(models.Model):
 	def jsonify(self):
 		return dict(
 			id = self.id, building_name = self.building_name,
-			coordinates = self.coordinates, sq_ft = self.sq_ft,
+			longitude = self.longitude,
+			latitude = self.latitude, sq_ft = self.sq_ft,
 			bedrooms = self.bedrooms, bathrooms = self.bathrooms,
 			address = self.address, city = self.city,
 			state = self.state, zipcode = self.zipcode,

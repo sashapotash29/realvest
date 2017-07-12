@@ -177,6 +177,16 @@ var create_li = function(property){
 	new_li.appendChild(cardDiv);
 	cardDiv.appendChild(cardContentDiv);
 
+	var actionDiv = document.createElement('div');
+	actionDiv.className = 'card-action';
+	var aTag = document.createElement('a');
+	aTag.href = '/property/single/' + property.id;
+	aTag.innerHTML = 'More Info';
+	actionDiv.appendChild(aTag);
+
+
+
+
 	// Create inner <ul> for property specific info
 	var propertyInfoUl = document.createElement('ul');
 
@@ -221,6 +231,7 @@ var create_li = function(property){
 	propertyInfoUl.appendChild(bedroomsLi);
 	
 	cardContentDiv.appendChild(propertyInfoUl);
+	cardDiv.appendChild(actionDiv);
 
 	return new_li
 };
