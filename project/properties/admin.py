@@ -1,5 +1,5 @@
 from django.contrib import admin
-from properties.models import Properties, Comment, UserProp
+from properties.models import Properties, Comment, Investment
 # Register your models here.
 
 #### Customizing Admin Portal
@@ -19,4 +19,4 @@ class PropertiesAdmin(admin.ModelAdmin):
 
 admin.site.register(Properties, PropertiesAdmin)
 admin.site.register(Comment)
-admin.site.register(UserProp)
+admin.site.register(Investment)

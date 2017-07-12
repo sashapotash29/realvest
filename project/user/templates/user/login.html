@@ -11,10 +11,10 @@
 		<h4 class="loginTitle"> Login </h4>
 		<p id="errorMessage">{{lError_message}}</p>
 		<form action="{% url 'user:home' %}" method = 'POST' class="loginForm">
-			{% csrf_token %}
-			{{ lform.as_p }}
-			<input type='submit' value="Enter">
-		</form>
+            {% csrf_token %}
+            {{ lform.as_p }}
+            <input type='submit' value="Enter">
+        </form>
 	</div>
 	<div class="col s4">
 		<h4 class="loginTitle"> Sign Up </h4>

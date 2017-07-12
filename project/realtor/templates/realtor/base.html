@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+
+
+<html>
+	<head>
+		<title>Realtor Portal -  Realvest </title>
+		<link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.css">
+		<link rel="stylesheet" href = "../../static/realtor/css/base.css">
+		{% block css %}
+
+		{% endblock %}
+
+	</head>
+	
+
+	<body>
+		<div class="row navBar">
+			{% block navContents %}
+			
+			{% endblock %}
+		</div>
+		<div class="row mainBody">
+			<div class ="col s1 sidePortion"></div>
+
+			<div class ="col s10 mainStruct">
+				{% block mainStruct %}
+
+				{% endblock %}
+			</div>
+
+			<div class ="col s1 sidePortion"></div>
+		</div>
+
+		
+	</body>
+
+
+
+</html>
