@@ -7,28 +7,80 @@
 
 {% block body %}
 <div class="row">
-	<div class="col s4">
-		<h4 class="loginTitle"> Login </h4>
-		<p id="errorMessage">{{lError_message}}</p>
-		<form action="{% url 'user:home' %}" method = 'POST' class="loginForm">
-            {% csrf_token %}
-            {{ lform.as_p }}
-            <input type='submit' value="Enter">
-        </form>
+
+	<div class="col s8 userArea">
+		<div class="row ToggleLoginSignUp">
+			<div class="col s6 ToggleChoice" id="investorToggle"> INVESTOR </div>
+			<div class="col s6 ToggleChoice" id="realtorToggle"> REALTOR</div>
+		</div>
+		<div class="row formSection">
+			<div class="col 12">
+			<!--  Investor Displayed Default Div -->
+				<div class = "row investorSection active" id= "investorSection">
+					<h2> INVESTOR IS FOOD </h2>
+					<input type="submit" value="Sign Up" id="toggleSignUpOrLoginInvestor">
+					<div class ="col s12 formActive" id = "investorLoginForm"> 
+						<h4 class="loginTitle"> Login </h4>
+						<p id="errorMessage">{{lError_message}}</p>
+						<form action="{% url 'user:home' %}" method = 'POST' class="loginForm">
+				            {% csrf_token %}
+				            {{ lform.as_p }}
+				            <input type='submit' value="Enter">
+				        </form>
+			        </div>
+			      
+			        <div class ="col s12 aLoginForm" id = "investorSignUpForm"> 
+				        <h4 class="loginTitle"> Sign Up </h4>
+						<form action="{% url 'user:register' %}" method = 'POST' class="loginForm">
+							{% csrf_token %}
+							<!-- <input class="loginTextInput" placeholder="Username" type="text" name="newUsername" required>
+							<input class="loginTextInput" placeholder="New Password" type="password" name="newPassword" required>
+							<input class="loginTextInput" placeholder="First Name" type="text" name="newFirstName" required>
+							<input class="loginTextInput" placeholder="Last Name" type="text" name="newLastName" required> -->
+							{{ rform.as_p }}
+							<input type='submit' value="Submit">
+						</form>
+						<!-- <input type="submit" value="login"> -->
+						<p id="errorMessage">{{message}}</p>
+					</div>
+				</div>
+
+				<div class = "row realtorSection " id= "realtorSection">
+					<!--  Realtor Displayed Default Div -->
+					<h2> REALTOR IS FOOD </h2>
+					<input type="submit" value="Sign Up" id="toggleSignUpOrLoginRealtor">
+					<div class ="col s12 formActive" id = "realtorLoginForm"> 
+						<h4 class="loginTitle"> Login </h4>
+						<p id="errorMessage">{{lError_message}}</p>
+						<form action="{% url 'realtor:home' %}" method = 'POST' class="loginForm">
+				            {% csrf_token %}
+				            {{ lform.as_p }}
+				            <input type='submit' value="Enter">
+				        </form>
+			        </div>
+			        <div class ="col s12 aLoginForm" id = "realtorSignUpForm"> 
+				        <h4 class="loginTitle"> Sign Up </h4>
+						<form action="{% url 'realtor:register' %}" method = 'POST' class="loginForm">
+							{% csrf_token %}
+							<!-- <input class="loginTextInput" placeholder="Username" type="text" name="newUsername" required>
+							<input class="loginTextInput" placeholder="New Password" type="password" name="newPassword" required>
+							<input class="loginTextInput" placeholder="First Name" type="text" name="newFirstName" required>
+							<input class="loginTextInput" placeholder="Last Name" type="text" name="newLastName" required> -->
+							{{ rform.as_p }}
+							<input type='submit' value="Submit">
+						</form>
+
+						<p id="errorMessage">{{message}}</p>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
 	</div>
-	<div class="col s4">
-		<h4 class="loginTitle"> Sign Up </h4>
-		<form action="{% url 'user:register' %}" method = 'POST' class="loginForm">
-			{% csrf_token %}
-			<!-- <input class="loginTextInput" placeholder="Username" type="text" name="newUsername" required>
-			<input class="loginTextInput" placeholder="New Password" type="password" name="newPassword" required>
-			<input class="loginTextInput" placeholder="First Name" type="text" name="newFirstName" required>
-			<input class="loginTextInput" placeholder="Last Name" type="text" name="newLastName" required> -->
-			{{ rform.as_p }}
-			<input type='submit' value="Submit">
-		</form>
-		<p id="errorMessage">{{message}}</p>
-	</div>
+	<!-- <div class="col s4"> -->
+		
+	<!-- </div> -->
 	<div class="col s4">
 		<h3> About </h3>
 		<p> RealVest is an web application that allows users to pool together funds in order to acquire luxury apartments in New York City to resell or rent out in order to acquire profits. </p>
