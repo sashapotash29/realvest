@@ -6,5 +6,7 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-	url(r'^login$', views.login, name="realtor_login"),
+	# url(r'^login$', views.login, name="realtor_login"),
+	url(r'^register$', views.register, name="register"),
+	url(r'^home$', views.home, name="home"),
 ]

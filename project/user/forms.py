@@ -29,6 +29,7 @@ class RegistrationForm(UserCreationForm):
 				'password1',
 				'password2',
 				'email'
+				# 'company'
 		)
 
 	def save(self, commit=True):
@@ -36,6 +37,9 @@ class RegistrationForm(UserCreationForm):
 		user.first_name = self.cleaned_data['first_name']
 		user.last_name = self.cleaned_data['last_name']
 		user.email = self.cleaned_data['email']
+		# print(user)
+		# print(dir(user))
+		
 
 		if commit:
 			user.save()

@@ -1,3 +1,26 @@
+
+
+
+.ToggleChoice{
+
+	background-color: lightgrey;
+
+}
+
+.investorSection{
+
+	display:none;
+
+}
+
+
+.realtorSection{
+
+	display:none;
+
+}
+
+
 .loginTitle{
 
 	color: darkblue;
@@ -16,5 +39,31 @@
 	margin:0;
 	padding:0;
 
+
+}
+
+#signUpFormActive{
+	display: none;
+
+
+}
+
+.active{
+
+	display: block;
+	background-color:lightgrey;
+
+}
+
+
+.formActive{
+	display: block;
+
+
+}
+
+.aLoginForm{
+
+	display:none;
 
 }
