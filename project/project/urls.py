@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^', include('user.urls', namespace='user')),
     url(r'^message/', include('messenger.urls', namespace='messenger')),
     url(r'^property/', include('properties.urls', namespace='properties')),
+    url(r'^realtor/', include('realtor.urls', namespace='realtor'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_URL)
 # to edit admin page look at Max Goodridge video 37,38

@@ -7,44 +7,45 @@
 {% endblock %}
 
 {% block body %}
-	<div class="row">
-		<div class="col s3" data-lat="{{lat}}" data-long="{{long}}">
+	<div class="row personalInfo">
+		<div class="col s3 personalInfoCol profilePicture">
 			<div class="hypotheticalProfilePic">
 				<p> Profile Picture Coming Soon </p>
+				<!-- WHERE IMAGE TAG WOULD GO -->
 			</div>
 		</div>
-		<div class="col s2 userInfo">
-			
-			
+		<div class="col s4 personalInfoCol userInfo">
 				
-				<h5> First Name </h5>
-				<p>{{user.first_name}}
+				<h5 class="userInfoHeader"> First Name: </h5>
+				<p class= "userInfoText">{{user.first_name}}
 				</p>
-				<h5> Last Name </h5>
-				<p>{{user.last_name}}</p>
-				<h5> Description </h5>
-				<p>{{userProfile.description}}
-				<p>
+				<h5 class="userInfoHeader"> Last Name: </h5>
+				<p class= "userInfoText">{{user.last_name}}</p>
+				<h5 class="userInfoHeader"> Description: </h5>
+				<textarea id = "descriptionBox">{{userProfile.description}} Temporary Description to see what it will look like when someone describes themselves however they see fit!
+				</textarea>
+				<p id= "changeInfoText">
 				To change your personal info, fill in the boxes above and then click "Update Info"
 				</p>
 				<input  class="changeUserInfo" type="submit" value="Update">
 
 		</div>
-		<div class="col s2 editInfo">
+		<div class="col s4 personalInfoCol editInfo">
 			<form action='/account/edit' method = 'POST' class="infoEditForm">
 				{% csrf_token %}
 				{{form.as_p}}
 				<input  class="submitNewUserInfo" type="submit" value="Update Info">
+				<!-- PUT EVENT LISTENER TO FLIP BETWEEN SHOW/EDIT -->
 			</form>
 		</div>
-		<div class="message_div">
+		<!-- <div class="message_div">
 			{% if message %}
 			<p class="messade">
 				{{message}}
 			</p>
 			{% endif %}
-		</div>
-		<div class="col s5 propertyRightSide">
+		</div> -->
+		<!-- <div class="col s4 propertyRightSide">
 			<ul class="accountPagePropertyList">
 			{% for property in properties %}
 				<li>
@@ -79,6 +80,6 @@
 	          </li>
           {% endfor %}
           	</ul>
-		</div>
+		</div> -->
 	</div>
 {% endblock %}
