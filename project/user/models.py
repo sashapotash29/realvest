@@ -26,6 +26,7 @@ class UserProfile(models.Model):
 	image = models.ImageField(upload_to='profile_image', blank=True)
 	investor = models.BooleanField(default = True) # If this field is False, then the user is a Realtor. Else, User is a Investor.
 
+
 	user_manager = models.Manager()
 
 	def __str__(self):

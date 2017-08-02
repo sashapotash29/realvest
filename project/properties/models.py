@@ -71,3 +71,5 @@ class Investment(models.Model):
 
 
 
+# print('models finish, properties')
+
